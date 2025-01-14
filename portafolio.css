@@ -1,3 +1,11 @@
 html {
-   background-color: #F2F0F0;
+   background-color: #e4e4e4;
+}
+.header {
+   background-color: #a307ca;
+}
+body
+{
+   margin: 0;
+   padding: 0;
 }
