@@ -1,11 +1,56 @@
 html {
    background-color: #e4e4e4;
 }
+@font-face{
+   font-family:Impact;
+   src:url(Assets\impact.ttf)format('truetype');
+}
+@font-face{
+   font-family:'Soccer';
+   src:url(Assets\soccer.otf)format('truetype');
+}
+@font-face{
+   font-family:'Pricedown';
+   src:url(Assets\pricedownbl.ttf)format('truetype');
+}
 .header {
    background-color: #a307ca;
 }
+.textos-header{
+   font-family:'Soccer';
+}
 body
 {
+   font-family: Arial, Helvetica, sans-serif;
    margin: 0;
    padding: 0;
+}
+.titulo{
+   font-family:'Soccer';
+}
+.ContenidoFooter{
+   background-color: #a307ca;
+}
+nav {
+   display: flex; /* Hace que los hijos de <nav> estén en línea */
+   justify-content: center; /* Centra los enlaces horizontalmente */
+   align-items: center; /* Centra los enlaces verticalmente dentro del <nav> */
+   padding: 10px; /* Espaciado interno */
+}
+nav a {
+   color: yellow; /* Color del texto de los enlaces */
+    text-decoration: none; /* Elimina subrayado */
+    margin: 0 15px; /* Espaciado entre enlaces */
+    font-size: 18px; /* Tamaño del texto */
+    font-weight: bold; /* Negrita */
+}
+
+nav a:hover {
+   color: orange; /* Cambia el color al pasar el mouse */
+   text-decoration: underline; /* Subrayado en hover */
+}
+.textos-header{
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }
