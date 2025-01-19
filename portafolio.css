@@ -54,3 +54,44 @@ nav a:hover {
    justify-content: center;
    align-items: center;
 }
+.carousel-container {
+   position: relative;
+   width: 400px;
+   height: 300px;
+   overflow: hidden;
+   border: 2px solid #333;
+   border-radius: 10px;
+ }
+ .imagenesArte{
+   display: flex;
+   transition: transform 0.5s ease-in-out;
+   width: 100%;
+ }
+ .imagenesArte img{
+   width: 400px; /* Igual al ancho del contenedor */
+   height: 300px; /* Igual al alto del contenedor */
+   object-fit: cover;
+ }
+ .carousel-button {
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+   background-color: rgba(0, 0, 0, 0.5);
+   color: #fff;
+   border: none;
+   padding: 10px;
+   cursor: pointer;
+   border-radius: 50%;
+ }
+
+ .carousel-button:hover {
+   background-color: rgba(0, 0, 0, 0.8);
+ }
+
+ .prev {
+   left: 10px;
+ }
+
+ .next {
+   right: 10px;
+ }
