@@ -16,6 +16,8 @@ html {
 .header {
    background-color: #a307ca;
    min-width: 100vw;
+   background: -webkit-linear-gradient(to right, #111111, #a307ca, #111111);  /* Chrome 10-25, Safari 5.1-6 */
+   background: linear-gradient(to right, #111111, #a307ca, #111111); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 .textos-header{
    font-family:'Soccer';
@@ -32,6 +34,8 @@ body
 .ContenidoFooter{
    background-color: #a307ca;
    min-width: 100vw;
+   background: -webkit-linear-gradient(to right, #111111, #a307ca, #111111);  /* Chrome 10-25, Safari 5.1-6 */
+   background: linear-gradient(to right, #111111, #a307ca, #111111); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 nav {
    display: flex; /* Hace que los hijos de <nav> estén en línea */
@@ -113,24 +117,27 @@ nav a:hover {
 
  /* --------------------------------------------------------Videojuegos-------------------------------------------------------------- */
  
- .game-container {
-   display: flex;
-   flex-direction: row;
-   justify-content: center;
-   align-items: center;
-   border: 2px solid rgb(255, 132, 0);
-   min-width: 80vw; /* Limita el ancho para que se vea bien en dispositivos */
-}
+ 
 .videojuegos{
    display: flex;
    justify-content: center;
    align-items: center;
    min-height: 100vh; /* Ocupa toda la altura de la ventana */  
    min-width: 100vw;;
-   background-color: #e4e4e4; /* Color de fondo */
-   border: 2px solid red;
+   background: #111111;  /* fallback for old browsers */
+   background: -webkit-linear-gradient(to right, #111111, #434343, #111111);  /* Chrome 10-25, Safari 5.1-6 */
+   background: linear-gradient(to right, #111111, #434343, #111111); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+   /*border: 2px solid red;*/
    font-family: Arial, sans-serif;
    overflow: hidden; /* Oculta cualquier contenido que se salga de la pantalla */
+}
+.game-container {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   /*border: 2px solid rgb(255, 132, 0);*/
+   min-width: 80vw; /* Limita el ancho para que se vea bien en dispositivos */
 }
 section  {
    display: none;  
@@ -147,7 +154,7 @@ section  {
    margin: 0.5vw;
    overflow: hidden;
    cursor: pointer;
-   border: 2px solid rgb(60, 255, 0);
+   /*border: 2px solid rgb(60, 255, 0);*/
    transition: transform 0.3s ease;
 }
 .game-box:hover {
@@ -165,7 +172,7 @@ section  {
 }
 
 #Earths-Twilight{
-   background-image: url('Assets/EarthTwilightTrailer.mp4'); /* Cambia a una imagen si no soportas videos */
+   background-image: url('Assets/Earth4.png');
 }
 
 #FruitPunch {
