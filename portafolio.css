@@ -159,6 +159,34 @@ section  {
 }
 .game-box:hover {
    transform: scale(1.1);
+   animation: none; /* Por defecto sin animación */
+}
+@keyframes playCanon {
+   0% { background-image: url('Assets/Captura de pantalla 2024-06-13 192326.png'); }
+   33% { background-image: url('Assets/Captura de pantalla 2024-06-13 192400.png'); }
+   66% { background-image: url('Assets/Captura de pantalla 2024-06-13 192420.png'); }
+   100% { background-image: url('Assets/Captura de pantalla 2024-06-13 192326.png'); } /* Regresa a la primera imagen */
+}
+@keyframes playEarth {
+   0% { background-image: url('Assets/Earth1.png'); }
+   25% { background-image: url('Assets/Earth2.png'); }
+   50% { background-image: url('Assets/Earth3.png'); }
+   75% { background-image: url('Assets/Earth4.png'); }
+   100% { background-image: url('Assets/Earth1.png'); } /* Regresa a la primera imagen */
+}
+@keyframes playFP {
+   0% { background-image: url('Assets/CAPTURA-01.png'); }
+   20% { background-image: url('Assets/CAPTURA-02.png'); }
+   40% { background-image: url('Assets/CAPTURA-03.png'); }
+   60% { background-image: url('Assets/CAPTURA-04.png'); }
+   80% { background-image: url('Assets/CAPTURA-05.png'); }
+   100% { background-image: url('Assets/CAPTURA-01.png'); } /* Regresa a la primera imagen */
+}
+@keyframes playOrb {
+   0% { background-image: url('Assets/Cap1Orbits.png'); }
+   33% { background-image: url('Assets/Cap2Orbits.png'); }
+   66% { background-image: url('Assets/Cap3Orbits.png'); }
+   100% { background-image: url('Assets/Cap1Orbits.png'); } /* Regresa a la primera imagen */
 }
 .titulo {
    color: #1e1c1c;
@@ -171,14 +199,34 @@ section  {
    background-image: url('Assets/Captura de pantalla 2024-06-13 192326.png');
 }
 
+#CanonMatacabras:hover {
+   transform: scale(1.1);
+   animation: playCanon 3s steps(1) infinite; /* Reproduce la animación */
+}
+
 #Earths-Twilight{
    background-image: url('Assets/Earth4.png');
+}
+
+#Earths-Twilight:hover {
+   transform: scale(1.1);
+   animation: playEarth 3s steps(1) infinite; /* Reproduce la animación */
 }
 
 #FruitPunch {
    background-image: url('Assets/CAPTURA-01.png');
 }
 
+#FruitPunch:hover {
+   transform: scale(1.1);
+   animation: playFP 3s steps(1) infinite; /* Reproduce la animación */
+}
+
 #Orbits {
    background-image: url('Assets/Cap1Orbits.png');
+}
+
+#Orbits:hover {
+   transform: scale(1.1);
+   animation: playOrb 3s steps(1) infinite; /* Reproduce la animación */
 }
