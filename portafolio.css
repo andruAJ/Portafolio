@@ -15,6 +15,7 @@ html {
 }
 .header {
    background-color: #a307ca;
+   min-width: 100vw;
 }
 .textos-header{
    font-family:'Soccer';
@@ -30,6 +31,7 @@ body
 }
 .ContenidoFooter{
    background-color: #a307ca;
+   min-width: 100vw;
 }
 nav {
    display: flex; /* Hace que los hijos de <nav> estén en línea */
@@ -54,6 +56,18 @@ nav a:hover {
    justify-content: center;
    align-items: center;
 }
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+
+/* --------------------------------------------------------Proyectos----------------------------------------------------------------- */
+
+
+
 .carousel-container {
    position: relative;
    width: 400px;
@@ -95,3 +109,69 @@ nav a:hover {
  .next {
    right: 10px;
  }
+
+
+ /* --------------------------------------------------------Videojuegos-------------------------------------------------------------- */
+ 
+ .game-container {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   border: 2px solid rgb(255, 132, 0);
+   min-width: 80vw; /* Limita el ancho para que se vea bien en dispositivos */
+}
+.videojuegos{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   min-height: 100vh; /* Ocupa toda la altura de la ventana */  
+   min-width: 100vw;;
+   background-color: #e4e4e4; /* Color de fondo */
+   border: 2px solid red;
+   font-family: Arial, sans-serif;
+   overflow: hidden; /* Oculta cualquier contenido que se salga de la pantalla */
+}
+section  {
+   display: none;  
+}
+.game-box {
+   flex: 1;
+   height: 75vh; /* Cada rectángulo ocupa el 25% de la altura de la pantalla */
+   background-size: cover;
+   background-position: center;
+   position: relative;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   margin: 0.5vw;
+   overflow: hidden;
+   cursor: pointer;
+   border: 2px solid rgb(60, 255, 0);
+   transition: transform 0.3s ease;
+}
+.game-box:hover {
+   transform: scale(1.1);
+}
+.titulo {
+   color: #1e1c1c;
+   font-size: 1.5rem;
+   font-weight: bold;
+   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.133);
+   z-index: 1; /* Asegura que el texto esté encima */
+}
+#CanonMatacabras {
+   background-image: url('Assets/Captura de pantalla 2024-06-13 192326.png');
+}
+
+#Earths-Twilight{
+   background-image: url('Assets/EarthTwilightTrailer.mp4'); /* Cambia a una imagen si no soportas videos */
+}
+
+#FruitPunch {
+   background-image: url('Assets/CAPTURA-01.png');
+}
+
+#Orbits {
+   background-image: url('Assets/Cap1Orbits.png');
+}
