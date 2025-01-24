@@ -3,15 +3,15 @@ html {
 }
 @font-face{
    font-family:Impact;
-   src:url(Assets\impact.ttf)format('truetype');
+   src:url("Assets/impact.ttf")format('truetype');
 }
 @font-face{
    font-family:'Soccer';
-   src:url(Assets\soccer.otf)format('truetype');
+   src:url("Assets/soccer.otf")format('truetype');
 }
 @font-face{
    font-family:'Pricedown';
-   src:url(Assets\pricedownbl.ttf)format('truetype');
+   src:url("Assets/pricedownbl.ttf")format('truetype');
 }
 .header {
    background-color: #a307ca;
