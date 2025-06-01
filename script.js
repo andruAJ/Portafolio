@@ -1,6 +1,6 @@
 let currentIndex = 0;
-    const images = document.querySelector('.imagenesArte');
-    const totalImages = document.querySelectorAll('.imagenesArte img').length;
+    //const images = document.querySelector('.imagenesArte');
+    //const totalImages = document.querySelectorAll('.imagenesArte img').length;
 
     function updateCarousel() {
       const offset = -currentIndex * 400; // 400px es el ancho de una imagen
