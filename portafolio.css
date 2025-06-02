@@ -188,6 +188,13 @@ section  {
    66% { background-image: url('Assets/Cap3Orbits.png'); }
    100% { background-image: url('Assets/Cap1Orbits.png'); } /* Regresa a la primera imagen */
 }
+@keyframes playTP {
+   0% { background-image: url('Assets/TempoClash0.jpg'); }
+   25% { background-image: url('Assets/TempoClash1.jpg'); }
+   50% { background-image: url('Assets/TempoClash2.jpg'); }
+   75% { background-image: url('Assets/TempoClash3.jpg'); } 
+   100% { background-image: url('Assets/TempoClash0.jpg'); } /* Regresa a la primera imagen */
+}
 .titulo {
    color: #1e1c1c;
    font-size: 1.5rem;
@@ -229,4 +236,12 @@ section  {
 #Orbits:hover {
    transform: scale(1.1);
    animation: playOrb 3s steps(1) infinite; /* Reproduce la animación */
+}
+#TempoClash {
+   background-image: url('Assets\TempoClash3.jpg');
+}
+
+#TempoClash:hover {
+   transform: scale(1.1);
+   animation: playTP 3s steps(1) infinite; /* Reproduce la animación */
 }
