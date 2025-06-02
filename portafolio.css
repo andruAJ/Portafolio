@@ -238,7 +238,7 @@ section  {
    animation: playOrb 3s steps(1) infinite; /* Reproduce la animación */
 }
 #TempoClash {
-   background-image: url('Assets\TempoClash3.jpg');
+   background-image: url('Assets/TempoClash3.jpg');
 }
 
 #TempoClash:hover {
