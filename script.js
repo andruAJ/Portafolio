@@ -1,18 +1,22 @@
-let currentIndex = 0;
-    const images = document.querySelector('.imagenesArte');
-    const totalImages = document.querySelectorAll('.imagenesArte img').length;
+document.querySelectorAll('.carousel').forEach((carousel) => {
+  let currentIndex = 0;
 
-    function updateCarousel() {
-      const offset = -currentIndex * 400; // 400px es el ancho de una imagen
-      images.style.transform = `translateX(${offset}px)`;
-    }
+  const imagesContainer = carousel.querySelector('.imagenesArte');
+  const images = imagesContainer.querySelectorAll('img');
+  const totalImages = images.length;
 
-    function nextImage() {
-      currentIndex = (currentIndex + 1) % totalImages; // Cicla al inicio si llega al final
-      updateCarousel();
-    }
+  const updateCarousel = () => {
+    const offset = -currentIndex * 400; // Ajusta 400 a tu ancho real de imagen
+    imagesContainer.style.transform = `translateX(${offset}px)`;
+  };
 
-    function prevImage() {
-      currentIndex = (currentIndex - 1 + totalImages) % totalImages; // Cicla al final si retrocede desde el inicio
-      updateCarousel();
-    }
+  carousel.querySelector('.next').addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % totalImages;
+    updateCarousel();
+  });
+
+  carousel.querySelector('.prev').addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+    updateCarousel();
+  });
+});
