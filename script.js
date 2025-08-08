@@ -23,31 +23,35 @@ document.querySelectorAll('.carousel').forEach((carousel) => {
 
 document.querySelectorAll('.game-box').forEach(card => {
   card.addEventListener('click', () => {
-    const juegoId = card.dataset.juego;
-    const source = document.getElementById(juegoId);
+    console.log('Card clicked:', card);
+    const panel = document.getElementById('panel-juego');
+    const carousel = panel.querySelector('.carousel-dinamico');
+    const texto = panel.querySelector('.texto-dinamico');
 
-    if (source) {
-      const panel = document.getElementById('panel-juego');
-      const carousel = panel.querySelector('.carousel-dinamico');
-      const texto = panel.querySelector('.texto-dinamico');
+    // Vacía contenido anterior
+    carousel.innerHTML = '';
+    texto.innerHTML = '';
 
-      // Vacía contenido anterior
-      carousel.innerHTML = '';
-      texto.innerHTML = '';
+    // Busca el div de imágenes y texto dentro del game-box
+    const imagenes = card.querySelector('.imagenes-juegos');
+    const textos = card.querySelector('[class^="texto-"]');
 
-      // Clona las imágenes y videos
-      source.querySelector('.imagenes').childNodes.forEach(node => {
+    // Clona las imágenes y videos
+    if (imagenes) {
+      imagenes.childNodes.forEach(node => {
         if (node.nodeType === 1) {
           carousel.appendChild(node.cloneNode(true));
         }
       });
-
-      // Clona el texto
-      texto.innerHTML = source.querySelector('.texto').innerHTML;
-
-      // Muestra el panel
-      panel.style.display = 'flex'; // o 'block', según tu diseño
     }
+
+    // Clona el texto
+    if (textos) {
+      texto.innerHTML = textos.innerHTML;
+    }
+
+    // Muestra el panel
+    panel.style.display = 'flex'; // o 'block', según tu diseño
   });
 });
 
