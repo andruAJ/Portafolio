@@ -167,12 +167,27 @@ section  {
   left: 10%;
   width: 80%;
   height: 80%;
-  background: white;
+  background: rgba(23, 23, 23, 0.937);
   display: none;
   flex-direction: row;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
   z-index: 1000;
+}
+#panel-juego button {
+  color: #fff;
+}
+.texto-dinamico{
+   text-align: center;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction:column;
+   color: #fff;
+}
+
+.texto-dinamico h2{
+   margin-top: 20px;
 }
 
 .panel-content {
@@ -183,8 +198,12 @@ section  {
 
 .carousel-dinamico {
   width: 60%;
+  height: 33.75%;
+  position: relative;
   overflow: hidden;
   display: flex;
+  border: 2px solid #333;
+  border-radius: 10px;
   gap: 10px;
 }
 
