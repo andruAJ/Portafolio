@@ -20,3 +20,37 @@ document.querySelectorAll('.carousel').forEach((carousel) => {
     updateCarousel();
   });
 });
+
+document.querySelectorAll('.game-box').forEach(card => {
+  card.addEventListener('click', () => {
+    const juegoId = card.dataset.juego;
+    const source = document.getElementById(juegoId);
+
+    if (source) {
+      const panel = document.getElementById('panel-juego');
+      const carousel = panel.querySelector('.carousel-dinamico');
+      const texto = panel.querySelector('.texto-dinamico');
+
+      // Vacía contenido anterior
+      carousel.innerHTML = '';
+      texto.innerHTML = '';
+
+      // Clona las imágenes y videos
+      source.querySelector('.imagenes').childNodes.forEach(node => {
+        if (node.nodeType === 1) {
+          carousel.appendChild(node.cloneNode(true));
+        }
+      });
+
+      // Clona el texto
+      texto.innerHTML = source.querySelector('.texto').innerHTML;
+
+      // Muestra el panel
+      panel.style.display = 'flex'; // o 'block', según tu diseño
+    }
+  });
+});
+
+function cerrarPanel() {
+  document.getElementById('panel-juego').style.display = 'none';
+}

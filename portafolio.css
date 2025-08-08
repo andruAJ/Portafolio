@@ -161,6 +161,54 @@ section  {
    transform: scale(1.1);
    animation: none; /* Por defecto sin animación */
 }
+#panel-juego {
+  position: fixed;
+  top: 5%;
+  left: 10%;
+  width: 80%;
+  height: 80%;
+  background: white;
+  display: none;
+  flex-direction: row;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  z-index: 1000;
+}
+
+.panel-content {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+}
+
+.carousel-dinamico {
+  width: 60%;
+  overflow: hidden;
+  display: flex;
+  gap: 10px;
+}
+
+.carousel-dinamico img, .carousel-dinamico video {
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+}
+
+.texto-dinamico {
+  width: 40%;
+  overflow-y: auto;
+}
+
+button {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
 @keyframes playCanon {
    0% { background-image: url('Assets/Captura de pantalla 2024-06-13 192326.png'); }
    33% { background-image: url('Assets/Captura de pantalla 2024-06-13 192400.png'); }
