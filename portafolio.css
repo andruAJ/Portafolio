@@ -67,7 +67,116 @@ nav a:hover {
    box-sizing: border-box;
 }
 
-
+/* --------------------------------------------------------Index----------------------------------------------------------------- */
+.PrimerCuadro{
+   display: flex;
+   justify-content: center;
+}
+.TextosPrimerCuadro{
+   display: flex;
+   flex-direction: column ;
+}
+.SegundoCuadro{
+   margin: 20px;
+}
+.TextosQuienSoy{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   text-align: center;
+   padding: 20px;
+   font-family: Arial, sans-serif;
+}
+.ImagenPerfil{
+   display: flex;
+   width: 80%;
+   height: 80%;
+}
+.ImagenPerfil img{
+   height: 100%;
+   width: 100%;
+}
+.TextoPerfil{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   text-align: center;
+   padding: 20px;
+}
+.TablaLenguajes{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   text-align: center;
+   border-collapse: collapse;    
+}
+.TablaLenguajes th, .TablaLenguajes td {
+   border: 3px solid #313131;
+   padding: 5px;
+   background-color: #e8e8e8;
+}
+.TablaLenguajes th{
+   background-color: #f1f1f1;
+}
+.TablaCursos{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   text-align: center;
+   border-collapse: collapse;
+}
+.TablaCursos th, .TablaCursos td {
+   border: 3px solid #313131;
+   padding: 5px;
+   background-color: #e8e8e8;
+}
+.TablaCursos th{
+   background-color: #f1f1f1;
+}
+.OtrasActividades{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   text-align: center;
+   border-collapse: collapse;
+}
+.OtrasActividades th, .OtrasActividades td {
+   border: 3px solid #313131;
+   padding: 5px;
+   background-color: #e8e8e8;
+}
+.OtrasActividades th{
+   background-color: #f1f1f1;
+}
+.Programas{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   text-align: center;
+   padding: 20px;
+}
+.Cursos{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   text-align: center;
+   padding: 20px;
+}
+.OtrasActividades{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   text-align: center;
+   padding: 20px;
+}
 /* --------------------------------------------------------Proyectos----------------------------------------------------------------- */
 
 
