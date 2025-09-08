@@ -72,12 +72,18 @@ nav a:hover {
    display: flex;
    justify-content: center;
 }
+.ImagenPerfil{
+   display: flex;
+   width: 80%;
+   height: 80%;
+}
+.ImagenPerfil img{
+   height: 100%;
+   width: 100%;
+}
 .TextosPrimerCuadro{
    display: flex;
    flex-direction: column ;
-}
-.SegundoCuadro{
-   margin: 20px;
 }
 .TextosQuienSoy{
    display: flex;
@@ -88,15 +94,6 @@ nav a:hover {
    padding: 20px;
    font-family: Arial, sans-serif;
 }
-.ImagenPerfil{
-   display: flex;
-   width: 80%;
-   height: 80%;
-}
-.ImagenPerfil img{
-   height: 100%;
-   width: 100%;
-}
 .TextoPerfil{
    display: flex;
    justify-content: center;
@@ -104,6 +101,35 @@ nav a:hover {
    flex-direction: column;
    text-align: center;
    padding: 20px;
+}
+.SeccionTextos-Gif{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+}
+.Programas{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   text-align: center;
+   padding: 20px;
+   width: 42%;
+   height: auto;
+   padding: 0;
+}
+.Programas img{
+   height: 100%;
+   width: 100%;
+   object-fit: contain;
+   justify-content: center;
+   align-items: center;
+   justify-content: center;
+   align-items: center;
+}
+.SegundoCuadro{
+   margin: 20px;
 }
 .TablaLenguajes{
    display: flex;
@@ -152,14 +178,6 @@ nav a:hover {
 }
 .OtrasActividades th{
    background-color: #f1f1f1;
-}
-.Programas{
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   flex-direction: column;
-   text-align: center;
-   padding: 20px;
 }
 .Cursos{
    display: flex;
