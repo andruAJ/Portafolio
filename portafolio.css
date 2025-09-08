@@ -131,6 +131,13 @@ nav a:hover {
 .SegundoCuadro{
    margin: 20px;
 }
+.TablasSuperiores{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: row;
+   gap: 20px;
+}
 .TablaLenguajes{
    display: flex;
    justify-content: center;
@@ -145,22 +152,6 @@ nav a:hover {
    background-color: #e8e8e8;
 }
 .TablaLenguajes th{
-   background-color: #f1f1f1;
-}
-.TablaCursos{
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   flex-direction: column;
-   text-align: center;
-   border-collapse: collapse;
-}
-.TablaCursos th, .TablaCursos td {
-   border: 3px solid #313131;
-   padding: 5px;
-   background-color: #e8e8e8;
-}
-.TablaCursos th{
    background-color: #f1f1f1;
 }
 .OtrasActividades{
@@ -179,6 +170,22 @@ nav a:hover {
 .OtrasActividades th{
    background-color: #f1f1f1;
 }
+.OtrasActividades{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   text-align: center;
+   padding: 20px;
+}
+.TablaInferior{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   text-align: center;
+   border-collapse: collapse;
+}
 .Cursos{
    display: flex;
    justify-content: center;
@@ -187,13 +194,21 @@ nav a:hover {
    text-align: center;
    padding: 20px;
 }
-.OtrasActividades{
+.TablaCursos{
    display: flex;
    justify-content: center;
    align-items: center;
    flex-direction: column;
    text-align: center;
-   padding: 20px;
+   border-collapse: collapse;
+}
+.TablaCursos th, .TablaCursos td {
+   border: 3px solid #313131;
+   padding: 5px;
+   background-color: #e8e8e8;
+}
+.TablaCursos th{
+   background-color: #f1f1f1;
 }
 /* --------------------------------------------------------Proyectos----------------------------------------------------------------- */
 
