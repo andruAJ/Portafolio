@@ -128,10 +128,7 @@ nav a:hover {
    justify-content: center;
    align-items: center;
 }
-.SegundoCuadro{
-   margin: 20px;
-}
-.TablasSuperiores{
+.SeccionBajaPrimerCuadro{
    display: flex;
    justify-content: center;
    align-items: center;
@@ -176,15 +173,22 @@ nav a:hover {
    align-items: center;
    flex-direction: column;
    text-align: center;
-   padding: 20px;
 }
-.TablaInferior{
+.SegundoCuadro{
+   margin: 20px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+   border-collapse: collapse;
+}
+.Educacion{
    display: flex;
    justify-content: center;
    align-items: center;
    flex-direction: column;
    text-align: center;
-   border-collapse: collapse;
+   padding: 20px;
 }
 .Cursos{
    display: flex;
