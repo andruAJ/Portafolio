@@ -220,8 +220,8 @@ nav a:hover {
 
 .carousel-container {
    position: relative;
-   width: 400px;
-   height: 300px;
+   width: 640px;
+   height: 360px;
    overflow: hidden;
    border: 2px solid #333;
    border-radius: 10px;
