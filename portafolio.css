@@ -392,6 +392,15 @@ section  {
    border: none;
    cursor: pointer;
 }
+
+/* --------------------------------------------------------VR Projects-------------------------------------------------------------- */
+
+.VRVideos{
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   display: flex;
+}
    
 @keyframes playCanon {
    0% { background-image: url('Assets/Captura de pantalla 2024-06-13 192326.png'); }
