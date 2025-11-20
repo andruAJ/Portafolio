@@ -436,6 +436,13 @@ section  {
    75% { background-image: url('Assets/TempoClash3.jpg'); } 
    100% { background-image: url('Assets/TempoClash0.jpg'); } /* Regresa a la primera imagen */
 }
+@keyframes playHNS {
+   0% { background-image: url('Assets/HackNSlash1.png'); }
+   25% { background-image: url('Assets/HackNSlash2.png'); }
+   50% { background-image: url('Assets/HackNSlash3.png'); }
+   75% { background-image: url('Assets/HackNSlash4.png'); } 
+   100% { background-image: url('Assets/HackNSlash1.png'); } /* Regresa a la primera imagen */
+}
 .titulo {
    color: #1e1c1c;
    font-size: 1.5rem;
@@ -485,4 +492,12 @@ section  {
 #TempoClash:hover {
    transform: scale(1.1);
    animation: playTP 3s steps(1) infinite; /* Reproduce la animación */
+}
+#HackNSlash {
+   background-image: url('Assets/HackNSlash2.png');
+}
+
+#HackNSlash:hover {
+   transform: scale(1.1);
+   animation: playHNS 3s steps(1) infinite; /* Reproduce la animación */
 }
