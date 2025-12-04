@@ -8,17 +8,8 @@ html {
 *{ box-sizing:border-box; margin:0; padding:0; }
 body{ font-family: Arial, Helvetica, sans-serif; }
 
-.header {
-   min-width: 100vw;
-   padding: 0.5%;
-   background: #111111;
-   background: -webkit-linear-gradient(to right, #111111, #242424, #111111);  
-   background: linear-gradient(to right, #111111, #242424, #111111);
-   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-   display: flex;
-   justify-content: center;
-   align-items: center;
-}
+.header, .ContenidoFooter { min-width:100vw; display: flex; justify-content: center; align-items: center;}
+.header { background: none; } 
 
 .textos-header{
    font-family:'Soccer';
@@ -56,7 +47,7 @@ nav {
    padding: 10px; 
 }
 nav a {
-   color:blueviolet;
+   color:var(--accent-text);
     text-decoration: none; 
     margin: 0 15px; 
     font-size: 18px;
@@ -284,23 +275,24 @@ nav a:hover {
    position: absolute;
    top: 50%;
    transform: translateY(-50%);
-   background-color: rgba(0, 0, 0, 0.5);
+   background: rgba(0, 0, 0, .5);
    color: #fff;
    border: none;
    padding: 10px;
-   cursor: pointer;
    border-radius: 50%;
+   cursor: pointer;
+   z-index: 2;
  }
 
  .carousel-button:hover {
    background-color: rgba(0, 0, 0, 0.8);
  }
 
- .prev {
+ .carousel-button.prev {
    left: 10px;
  }
 
- .next {
+ .carousel-button.next {
    right: 10px;
  }
 
@@ -365,12 +357,15 @@ section  {
   color: #fff;
 }
 .texto-dinamico{
-   text-align: center;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   flex-direction:column;
-   color: #fff;
+  width:40%;
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  gap:1rem;
+  overflow-y:auto;
+  text-align:center;
+  padding:1rem;
 }
 
 .texto-dinamico h2{
@@ -533,4 +528,20 @@ section  {
 #HackNSlash:hover {
    transform: scale(1.1);
    animation: playHNS 3s steps(1) infinite; /* Reproduce la animación */
+}
+
+:root{
+  --bg1: #111111;
+  --accent: #a307ca;
+  --accent-dark: #434343;
+  --accent-text: yellow;
+  --panel-bg: rgba(23,23,23,0.937);
+  --radius: 10px;
+  --carousel-w: 400px;
+  --carousel-h: 100%;
+}
+
+.gradient-bg{
+  background: linear-gradient(to right, var(--bg1), var(--accent), var(--bg1));
+  background: -webkit-linear-gradient(to right, var(--bg1), var(--accent), var(--bg1));
 }
