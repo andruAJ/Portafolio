@@ -1,18 +1,13 @@
 html {
    background-color: #111111;
 }
-@font-face{
-   font-family:Impact;
-   src:url("Assets/impact.ttf")format('truetype');
-}
-@font-face{
-   font-family:'Soccer';
-   src:url("Assets/soccer.otf")format('truetype');
-}
-@font-face{
-   font-family:'Pricedown';
-   src:url("Assets/pricedownbl.ttf")format('truetype');
-}
+@font-face{ font-family:Impact; src:url("Assets/impact.ttf") format('truetype'); }
+@font-face{ font-family:'Soccer'; src:url("Assets/soccer.otf") format('truetype'); }
+@font-face{ font-family:'Pricedown'; src:url("Assets/pricedownbl.ttf") format('truetype'); }
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+body{ font-family: Arial, Helvetica, sans-serif; }
+
 .header {
    min-width: 100vw;
    padding: 0.5%;
@@ -49,6 +44,7 @@ body
 }
 .ContenidoFooter{
    min-width: 100vw;
+   padding: 0.5%;
    background: #111111;
    background: -webkit-linear-gradient(to right, #111111, #242424, #111111);  
    background: linear-gradient(to right, #111111, #242424, #111111); 
@@ -60,16 +56,16 @@ nav {
    padding: 10px; 
 }
 nav a {
-   color: yellow; 
+   color:blueviolet;
     text-decoration: none; 
     margin: 0 15px; 
     font-size: 18px;
-    font-weight: bold; 
+    font-weight: 700; 
 }
 
 nav a:hover {
-   color: orange; /* Cambia el color al pasar el mouse */
-   text-decoration: underline; /* Subrayado en hover */
+   color: orange; 
+   text-decoration: underline;
 }
 .textos-header{
    display: flex;
@@ -95,6 +91,7 @@ nav a:hover {
    outline: #313131 solid 5px;
    border-radius: 3px;
    overflow: hidden;
+   margin: 20px;
 }
 .ImagenPerfil img{
    height: 100%;
@@ -235,8 +232,35 @@ nav a:hover {
    background-color: #242424;
 }
 /* --------------------------------------------------------Proyectos----------------------------------------------------------------- */
-
-
+.Intro{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   text-align: center;
+   padding-top: 20px;
+}
+.Rigs{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   text-align: center;
+   padding: 20px;
+}
+.carousel {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding: 10px;
+ }
+ .texto {
+   font-family: Arial, sans-serif;
+   color: #fff;
+   text-align: center;
+   margin-bottom: 10px;
+   width: 600px;
+ }
 
 .carousel-container {
    position: relative;
@@ -249,12 +273,11 @@ nav a:hover {
  .imagenesArte{
    display: flex;
    transition: transform 0.5s ease-in-out;
-   width: 100%;
    flex-shrink: 0;
  }
  .imagenesArte img{
-   width: 400px; 
-   height: 300px; 
+   width: 640px;
+   height: 360px;
    object-fit: cover;
  }
  .carousel-button {
@@ -415,8 +438,8 @@ section  {
 .VRVideos{
    justify-content: center;
    align-items: center;
-   flex-direction: column;
    display: flex;
+   padding: 20px;
 }
    
 @keyframes playCanon {

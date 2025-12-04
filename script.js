@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const totalImages = images.length;
 
   const updateCarousel = () => {
-    const offset = -currentIndex * 400; // Ajusta 400 a tu ancho real de imagen
+    const offset = -currentIndex * 640; // Ajusta 400 a tu ancho real de imagen
     imagesContainer.style.transform = `translateX(${offset}px)`;
   };
 
