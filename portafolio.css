@@ -456,27 +456,24 @@ section  {
    40% { background-image: url('Assets/CAPTURA-03.png'); }
    60% { background-image: url('Assets/CAPTURA-04.png'); }
    80% { background-image: url('Assets/CAPTURA-05.png'); }
-   100% { background-image: url('Assets/CAPTURA-01.png'); } /* Regresa a la primera imagen */
+   100% { background-image: url('Assets/CAPTURA-01.png'); } 
 }
 @keyframes playOrb {
    0% { background-image: url('Assets/Cap1Orbits.png'); }
    33% { background-image: url('Assets/Cap2Orbits.png'); }
    66% { background-image: url('Assets/Cap3Orbits.png'); }
-   100% { background-image: url('Assets/Cap1Orbits.png'); } /* Regresa a la primera imagen */
+   100% { background-image: url('Assets/Cap1Orbits.png'); } 
 }
 @keyframes playTP {
    0% { background-image: url('Assets/TempoClash0.jpg'); }
    25% { background-image: url('Assets/TempoClash1.jpg'); }
    50% { background-image: url('Assets/TempoClash2.jpg'); }
    75% { background-image: url('Assets/TempoClash3.jpg'); } 
-   100% { background-image: url('Assets/TempoClash0.jpg'); } /* Regresa a la primera imagen */
-}
-@keyframes playHNS {
-   0% { background-image: url('Assets/HackNSlash1.png'); }
+   100% { background-image: url('Assets/TempoClash0.jpg'); } 
    25% { background-image: url('Assets/HackNSlash2.png'); }
    50% { background-image: url('Assets/HackNSlash3.png'); }
    75% { background-image: url('Assets/HackNSlash4.png'); } 
-   100% { background-image: url('Assets/HackNSlash1.png'); } /* Regresa a la primera imagen */
+   100% { background-image: url('Assets/HackNSlash1.png'); } 
 }
 #CanonMatacabras {
    background-image: url('Assets/Captura de pantalla 2024-06-13 192400.png');
@@ -484,7 +481,7 @@ section  {
 
 #CanonMatacabras:hover {
    transform: scale(1.1);
-   animation: playCanon 3s steps(1) infinite; /* Reproduce la animación */
+   animation: playCanon 3s steps(1) infinite; 
 }
 
 #Earths-Twilight{
@@ -493,7 +490,7 @@ section  {
 
 #Earths-Twilight:hover {
    transform: scale(1.1);
-   animation: playEarth 3s steps(1) infinite; /* Reproduce la animación */
+   animation: playEarth 3s steps(1) infinite; 
 }
 
 #FruitPunch {
@@ -502,7 +499,7 @@ section  {
 
 #FruitPunch:hover {
    transform: scale(1.1);
-   animation: playFP 3s steps(1) infinite; /* Reproduce la animación */
+   animation: playFP 3s steps(1) infinite; 
 }
 
 #Orbits {
@@ -511,7 +508,7 @@ section  {
 
 #Orbits:hover {
    transform: scale(1.1);
-   animation: playOrb 3s steps(1) infinite; /* Reproduce la animación */
+   animation: playOrb 3s steps(1) infinite; 
 }
 #TempoClash {
    background-image: url('Assets/TempoClash3.jpg');
@@ -519,7 +516,7 @@ section  {
 
 #TempoClash:hover {
    transform: scale(1.1);
-   animation: playTP 3s steps(1) infinite; /* Reproduce la animación */
+   animation: playTP 3s steps(1) infinite; 
 }
 #HackNSlash {
    background-image: url('Assets/HackNSlash2.png');
@@ -527,7 +524,7 @@ section  {
 
 #HackNSlash:hover {
    transform: scale(1.1);
-   animation: playHNS 3s steps(1) infinite; /* Reproduce la animación */
+   animation: playHNS 3s steps(1) infinite; 
 }
 
 :root{
