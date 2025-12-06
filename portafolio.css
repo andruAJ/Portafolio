@@ -367,29 +367,26 @@ section  {
   text-align:center;
   padding:1rem;
 }
-
 .texto-dinamico h2{
    margin-top: 20px;
 }
-
 .panel-content {
   display: flex;
+   align-items: center;
+   justify-content: center;
   width: 100%;
   gap: 20px;
 }
-
 .carousel-dinamico {
-  width: 60%;
-  height: 100%;
+  width: 640px;
+  height: 360px;
   position: relative;
   overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
   border: 2px solid #333;
   border-radius: 10px;
-  gap: 10px;
+  display: flex;
+   align-items: center;
+   justify-content: center;
 }
 .imagenesArteCarouselDin {
   display: flex;
@@ -470,10 +467,6 @@ section  {
    50% { background-image: url('Assets/TempoClash2.jpg'); }
    75% { background-image: url('Assets/TempoClash3.jpg'); } 
    100% { background-image: url('Assets/TempoClash0.jpg'); } 
-   25% { background-image: url('Assets/HackNSlash2.png'); }
-   50% { background-image: url('Assets/HackNSlash3.png'); }
-   75% { background-image: url('Assets/HackNSlash4.png'); } 
-   100% { background-image: url('Assets/HackNSlash1.png'); } 
 }
 #CanonMatacabras {
    background-image: url('Assets/Captura de pantalla 2024-06-13 192400.png');

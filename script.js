@@ -50,7 +50,7 @@ document.querySelectorAll('.game-box').forEach(card => {
       imagenesContainer.childNodes.forEach(node => {
         if (node.nodeType === 1) {
           const clone = node.cloneNode(true);
-          clone.style.width = '400px';
+          clone.style.width = '640px';
           clone.style.flexShrink = '0';
           imagenesArte.appendChild(clone);
           items.push(clone);
@@ -59,7 +59,7 @@ document.querySelectorAll('.game-box').forEach(card => {
       imagenesArte.style.display = 'flex';
       imagenesArte.style.transition = 'transform 0.5s ease-in-out';
       imagenesArte.style.overflow = 'hidden';
-      imagenesArte.style.width = (items.length * 400) + 'px';
+      imagenesArte.style.width = (items.length * 640) + 'px';
     }
 
     // Clona el texto
@@ -69,9 +69,8 @@ document.querySelectorAll('.game-box').forEach(card => {
 
     // Carousel logic for .carousel-dinamico
     let currentIndex = 0;
-    const itemWidth = 400; // Ajusta si tus imágenes tienen otro ancho
     function updateCarouselDinamico() {
-      const offset = -currentIndex * itemWidth;
+      const offset = -currentIndex * 640;
       imagenesArte.style.transform = `translateX(${offset}px)`;
     }
     updateCarouselDinamico();
