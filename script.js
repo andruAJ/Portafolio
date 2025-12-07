@@ -58,18 +58,20 @@ document.querySelectorAll('.game-box').forEach(card => {
       imagenesContainer.childNodes.forEach(node => {
         if (node.nodeType === 1) {
           const clone = node.cloneNode(true);
-          // base styling; widths will asignarse según relación de aspecto
-          clone.style.flexShrink = '0';
-          clone.style.height = '100%';
-          if (clone.tagName && clone.tagName.toLowerCase() === 'img') {
-            clone.style.objectFit = 'cover';
+          // ensure media fills vertical space and is centered inside the slide
+          if (clone.tagName && (clone.tagName.toLowerCase() === 'img' || clone.tagName.toLowerCase() === 'video')) {
+            clone.style.height = '100%';
             clone.style.display = 'block';
-          } else if (clone.tagName && clone.tagName.toLowerCase() === 'video') {
             clone.style.objectFit = 'cover';
-            clone.style.display = 'block';
+            clone.style.maxWidth = 'none';
           }
-          imagenesArte.appendChild(clone);
-          items.push(clone);
+          const wrapper = document.createElement('div');
+          wrapper.className = 'slide-item';
+          wrapper.style.flexShrink = '0';
+          wrapper.style.height = '100%';
+          wrapper.appendChild(clone);
+          imagenesArte.appendChild(wrapper);
+          items.push(wrapper);
         }
       });
       imagenesArte.style.display = 'flex';
@@ -94,11 +96,22 @@ document.querySelectorAll('.game-box').forEach(card => {
     const carouselHeight = carouselDinamico.clientHeight || 480;
     let itemWidth = defaultWidth;
 
+    // viewport/limits for sliding
+    let viewportWidth = carouselDinamico.clientWidth || 640;
+    let totalWidth = 0;
+    let maxIndex = 0; // maximum allowed currentIndex without exposing empty space
+
     function applyWidths(width) {
       itemWidth = Math.max(120, Math.round(width));
       items.forEach(i => i.style.width = itemWidth + 'px');
-      imagenesArte.style.width = (items.length * itemWidth) + 'px';
-      imagenesArte.style.transform = `translateX(${ -0 * itemWidth }px)`;
+      totalWidth = items.length * itemWidth;
+      imagenesArte.style.width = totalWidth + 'px';
+      // recompute viewport and maxIndex
+      viewportWidth = carouselDinamico.clientWidth || viewportWidth;
+      maxIndex = Math.max(0, Math.ceil((totalWidth - viewportWidth) / itemWidth));
+      // ensure currentIndex within bounds
+      currentIndex = Math.max(0, Math.min(currentIndex, maxIndex || 0));
+      imagenesArte.style.transform = `translateX(${ -currentIndex * itemWidth }px)`;
     }
 
     function getImageSize(src, cb) {
@@ -146,6 +159,8 @@ document.querySelectorAll('.game-box').forEach(card => {
     // Carousel logic for .carousel-dinamico
     let currentIndex = 0;
     function updateCarouselDinamico() {
+      // clamp currentIndex to avoid showing empty space
+      currentIndex = Math.max(0, Math.min(currentIndex, maxIndex));
       const offset = -currentIndex * itemWidth;
       imagenesArte.style.transform = `translateX(${offset}px)`;
     }
@@ -164,11 +179,21 @@ document.querySelectorAll('.game-box').forEach(card => {
       nextBtn.style.zIndex = '2';
       prevBtn.style.zIndex = '2';
       nextBtn.onclick = function() {
-        currentIndex = (currentIndex + 1) % items.length;
+        if (currentIndex < maxIndex) {
+          currentIndex++;
+        } else {
+          // wrap to start
+          currentIndex = 0;
+        }
         updateCarouselDinamico();
       };
       prevBtn.onclick = function() {
-        currentIndex = (currentIndex - 1 + items.length) % items.length;
+        if (currentIndex > 0) {
+          currentIndex--;
+        } else {
+          // wrap to last allowed
+          currentIndex = maxIndex;
+        }
         updateCarouselDinamico();
       };
     }

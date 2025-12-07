@@ -401,6 +401,24 @@ section  {
   width: 100%;
   object-fit: contain;
 }
+.imagenesArteCarouselDin {
+   display: flex;
+   align-items: center;
+   height: 100%;
+}
+.slide-item {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   height: 100%;
+   flex-shrink: 0;
+}
+.slide-item img, .slide-item video {
+   height: 100%;
+   object-fit: cover;
+   display: block;
+   max-width: none;
+}
 .texto-dinamico {
   width: 40%;
   overflow-y: auto;
