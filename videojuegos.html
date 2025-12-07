@@ -22,7 +22,7 @@
         <div class="game-container">
             <div class="game-box" id="CanonMatacabras">               
                 <section class="infoCM">
-                    <h1 class="titulo">Cañon Matacabras</h1>
+                    <h1 class="titulo-juego">Cañon Matacabras</h1>
                     <div class="texto-CanonMatacabras">
                         <h2>This game is a platformer I made for a university class together with two classmates. We developed it in Unity using the Corgi Engine and it includes 3 levels plus the final boss level</h2>
                     </div>
@@ -42,7 +42,7 @@
             </div>           
             <div class="game-box" id="Earths-Twilight">
                 <section class="infoEarth">
-                    <h1 class="titulo">Earth's Twilight</h1>
+                    <h1 class="titulo-juego">Earth's Twilight</h1>
                     <div class="texto-Earth's Twilight">
                             <h2>This game is a Sci-Fi FPS developed for a University class between only 2 people.The project took 2 months of planning and 2 months of development, during which my teammate and I focused on the mechanics and dynamics, and saved time on the visual part by using 3D assets purchased from the Unity Asset Store.</h2>
                             <h2>My role in the project focussed on developing the main mechanics, post-processing, narrative, UX and another areas.</h2>
@@ -64,7 +64,7 @@
             </div>           
             <div class="game-box" id="FruitPunch">
                 <section class="infoFP">
-                    <h1 class="titulo">Fruit Punch</h1>
+                    <h1 class="titulo-juego">Fruit Punch</h1>
                     <div class="texto-FruitPunch">
                             <h2>This casual arcade mobile game was developed together with the <a href="https://www.instagram.com/kofigames.col/" target="_blank">Kofi Games</a> team, of which I am a part. The game is available for download on the <a href="https://play.google.com/store/apps/details?id=com.KofiGames.FruitPunch&hl=es_CO" target="_blank">play store</a> and receives constant updates. In this game I've helped with the UI and UX.</h2>
                     </div>
@@ -79,7 +79,7 @@
             </div>           
             <div class="game-box" id="Orbits">
                 <section class="infoOrb">
-                    <h1 class="titulo">Orbits</h1>
+                    <h1 class="titulo-juego">Orbits</h1>
                     <div class="texto-Orbits">
                             <h2>This game was another project from <a href="https://www.instagram.com/kofigames.col/" target="_blank">Kofi Games</a>, which we developed for the <a href="https://itch.io/jam/gmtk-2024" target="_blank">GMTK Game Jam 2024</a>, with the theme "Built to Scale", where we finished within the top 20% of the best games. The game is available on itch.io at <a href="https://smfragale.itch.io/orbits" target="_blank">this link</a>.</h2>
                     </div>
@@ -96,7 +96,7 @@
             </div>
             <div class="game-box" id="TempoClash">
                 <section class="infoTempC">
-                    <h1 class="titulo">Tempo Clash</h1>
+                    <h1 class="titulo-juego">Tempo Clash</h1>
                     <div class="texto-Tempo Clash">
                             <h2>This game was made for one of my classes in collegue, aiming for mobile devices. Your objective is to survive through the whole of a song, avoiding explosive cats and lasers while you get as much as points as possible</h2>
                     </div>
@@ -113,7 +113,7 @@
                 </section>                       
             </div><div class="game-box" id="HackNSlash">
                 <section class="infoJAV">
-                    <h1 class="titulo">Hack n Slash Game</h1>
+                    <h1 class="titulo-juego">Hack n Slash Game</h1>
                     <div class="texto-HackNSlash">
                             <h2>This Hack N Slash game was developed with the help of another 2 great University companions. one to create one of the attack vfx and another to help with the development of power ups and enemy waves, while i created the othe attack VFX and the enemy AI and combat system. Here's a link for the web version of the game if you want to try it: https://andruaj.github.io/AnimacionVideojuegos/      Use WASD to move, Q & E to rotate and the mouse clicks to attack</h2>
                     </div>
@@ -132,12 +132,16 @@
             <div id="panel-juego" style="display: none;">
             <button class="cerrar-button" onclick="cerrarPanel()">✖</button>
             <div class="panel-content">
-                <div class="carousel-dinamico">
-                    <div class="imagenesArteCarouselDin"></div>
-                    <button class="carousel-button prev" onclick="prevImage()">❮</button>
-                    <button class="carousel-button next" onclick="nextImage()">❯</button>
+                <div class="titulo-dinamico"></div>
+                <div class="ElementosDin">
+                    <div class="carousel-dinamico">
+                        <div class="imagenesArteCarouselDin"></div>
+                        <button class="carousel-button prev" onclick="prevImage()">❮</button>
+                        <button class="carousel-button next" onclick="nextImage()">❯</button>
+                    </div>
+                    <div class="texto-dinamico"></div>
                 </div>
-                <div class="texto-dinamico"></div>
+                
             </div>
         </div>  
         </div>   

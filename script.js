@@ -42,6 +42,14 @@ document.querySelectorAll('.game-box').forEach(card => {
     // Busca el div de imágenes y texto dentro del game-box
     const imagenesContainer = card.querySelector('.imagenes-juegos');
     const textos = card.querySelector('[class^="texto-"]');
+    const titulo = card.querySelector('.titulo-juego');
+    const tituloDinamico = panel.querySelector('.titulo-dinamico');
+
+    // Clona el título
+    if (titulo && tituloDinamico) {
+      tituloDinamico.innerHTML = titulo.innerHTML;
+    }
+
 
     // Clona las imágenes y videos en .imagenesArteCarouselDin
     let items = [];
