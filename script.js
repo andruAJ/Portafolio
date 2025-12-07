@@ -58,8 +58,16 @@ document.querySelectorAll('.game-box').forEach(card => {
       imagenesContainer.childNodes.forEach(node => {
         if (node.nodeType === 1) {
           const clone = node.cloneNode(true);
-          clone.style.width = '640px';
+          // base styling; widths will asignarse según relación de aspecto
           clone.style.flexShrink = '0';
+          clone.style.height = '100%';
+          if (clone.tagName && clone.tagName.toLowerCase() === 'img') {
+            clone.style.objectFit = 'cover';
+            clone.style.display = 'block';
+          } else if (clone.tagName && clone.tagName.toLowerCase() === 'video') {
+            clone.style.objectFit = 'cover';
+            clone.style.display = 'block';
+          }
           imagenesArte.appendChild(clone);
           items.push(clone);
         }
@@ -67,7 +75,6 @@ document.querySelectorAll('.game-box').forEach(card => {
       imagenesArte.style.display = 'flex';
       imagenesArte.style.transition = 'transform 0.5s ease-in-out';
       imagenesArte.style.overflow = 'hidden';
-      imagenesArte.style.width = (items.length * 640) + 'px';
     }
 
     // Clona el texto
@@ -75,17 +82,76 @@ document.querySelectorAll('.game-box').forEach(card => {
       texto.innerHTML = textos.innerHTML;
     }
 
+    // Muestra el panel antes de medir
+    panel.style.display = 'flex';
+
+    // obtener referencias tempranas a los botones para usarlas en la función de actualización
+    const nextBtn = carouselDinamico.querySelector('.next');
+    const prevBtn = carouselDinamico.querySelector('.prev');
+
+    // Calcular ancho por slide según relación de aspecto de la primera imagen/video
+    const defaultWidth = 640;
+    const carouselHeight = carouselDinamico.clientHeight || 480;
+    let itemWidth = defaultWidth;
+
+    function applyWidths(width) {
+      itemWidth = Math.max(120, Math.round(width));
+      items.forEach(i => i.style.width = itemWidth + 'px');
+      imagenesArte.style.width = (items.length * itemWidth) + 'px';
+      imagenesArte.style.transform = `translateX(${ -0 * itemWidth }px)`;
+    }
+
+    function getImageSize(src, cb) {
+      const img = new Image();
+      img.onload = function() { cb(img.naturalWidth, img.naturalHeight); };
+      img.onerror = function() { cb(null, null); };
+      img.src = src;
+    }
+
+    const firstOriginal = imagenesContainer ? imagenesContainer.querySelector('img, video') : null;
+    if (firstOriginal) {
+      if (firstOriginal.tagName.toLowerCase() === 'img') {
+        const src = firstOriginal.getAttribute('src');
+        getImageSize(src, (w, h) => {
+          if (w && h) {
+            const ratio = w / h;
+            const computed = Math.min(defaultWidth, Math.max(120, Math.round(carouselHeight * ratio)));
+            applyWidths(computed);
+          } else applyWidths(defaultWidth);
+        });
+      } else if (firstOriginal.tagName.toLowerCase() === 'video') {
+        const wAttr = parseInt(firstOriginal.getAttribute('width')) || firstOriginal.videoWidth;
+        const hAttr = parseInt(firstOriginal.getAttribute('height')) || firstOriginal.videoHeight;
+        if (wAttr && hAttr) {
+          const ratio = wAttr / hAttr;
+          const computed = Math.min(defaultWidth, Math.max(120, Math.round(carouselHeight * ratio)));
+          applyWidths(computed);
+        } else {
+          firstOriginal.addEventListener('loadedmetadata', function() {
+            const vw = firstOriginal.videoWidth || defaultWidth;
+            const vh = firstOriginal.videoHeight || Math.round(defaultWidth * 9 / 16);
+            const ratio = vw / vh;
+            const computed = Math.min(defaultWidth, Math.max(120, Math.round(carouselHeight * ratio)));
+            applyWidths(computed);
+          });
+          applyWidths(defaultWidth);
+        }
+      } else {
+        applyWidths(defaultWidth);
+      }
+    } else {
+      applyWidths(defaultWidth);
+    }
+
     // Carousel logic for .carousel-dinamico
     let currentIndex = 0;
     function updateCarouselDinamico() {
-      const offset = -currentIndex * 640;
+      const offset = -currentIndex * itemWidth;
       imagenesArte.style.transform = `translateX(${offset}px)`;
     }
     updateCarouselDinamico();
 
     // Next/Prev button logic
-    const nextBtn = carouselDinamico.querySelector('.next');
-    const prevBtn = carouselDinamico.querySelector('.prev');
     if (nextBtn && prevBtn && items.length > 0) {
       nextBtn.style.position = 'absolute';
       nextBtn.style.right = '10px';
@@ -106,9 +172,6 @@ document.querySelectorAll('.game-box').forEach(card => {
         updateCarouselDinamico();
       };
     }
-
-    // Muestra el panel
-    panel.style.display = 'flex';
   });
 });
 });

@@ -401,7 +401,6 @@ section  {
   width: 100%;
   object-fit: contain;
 }
-
 .texto-dinamico {
   width: 40%;
   overflow-y: auto;
