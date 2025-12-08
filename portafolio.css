@@ -144,7 +144,7 @@ nav a:hover {
 .Programas .skill-item .skill-bar {
    display: block;
    height: 100%;
-   width: 0; /* will be animated by JS */
+   width: 0;
    background: linear-gradient(90deg,#ffd54a,#f2b705);
    border-radius: 999px;
    transition: width 1.2s cubic-bezier(.2,.8,.2,1);
