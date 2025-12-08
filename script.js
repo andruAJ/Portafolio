@@ -199,7 +199,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   const skillBars = document.querySelectorAll('.skill-bar');
-  console.log('skill-bar initializer running, found', skillBars.length);
   if (skillBars.length === 0) return;
 
   skillBars.forEach(bar => {
@@ -209,7 +208,6 @@ document.addEventListener('DOMContentLoaded', function() {
       track.className = 'skill-track';
       bar.parentNode.insertBefore(track, bar);
       track.appendChild(bar);
-      console.log('Wrapped a .skill-bar in .skill-track for debugging');
     }
   });
 

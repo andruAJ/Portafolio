@@ -320,14 +320,15 @@ nav a:hover {
    background: -webkit-linear-gradient(to right, #111111, #242424, #111111);  
    background: linear-gradient(to right, #111111, #242424, #111111);
    font-family: Arial, sans-serif;
-   overflow: hidden; 
+   overflow: auto;
 }
 .game-container {
    display: flex;
    flex-direction: row;
    justify-content: center;
    align-items: center;
-   min-width: 80vw; 
+   min-width: 80vw;
+   width: 100%;
 }
 section  {
    display: none;  
@@ -573,4 +574,380 @@ section  {
 .gradient-bg{
   background: linear-gradient(to right, var(--bg1), var(--accent), var(--bg1));
   background: -webkit-linear-gradient(to right, var(--bg1), var(--accent), var(--bg1));
+}
+
+/* Override Tailwind utility classes for better mobile control */
+.max-w-3xl {
+  max-width: 100%;
+}
+
+.p-6 {
+  padding: 1rem;
+}
+
+.space-y-8 > * + * {
+  margin-top: 1rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.flex-items {
+  flex-direction: column;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.h-4 {
+  height: 1rem;
+}
+
+.rounded-full {
+  border-radius: 9999px;
+}
+
+.bg-gray-700 {
+  color: #374151;
+}
+
+.bg-gray-500 {
+  color: #6b7280;
+}
+
+.text-lg {
+  font-size: 1rem;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.text-medium {
+  font-weight: 500;
+}
+
+/* ========== RESPONSIVE MOBILE & TABLET ========== */
+
+/* Tablets: 768px and down */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  nav a {
+    margin: 5px 0;
+    font-size: 16px;
+  }
+
+  .titulo {
+    font-size: 1.2rem;
+  }
+
+  /* Index page */
+  .PrimerCuadro {
+    flex-direction: column;
+  }
+
+  .SeccionBajaPrimerCuadro {
+    flex-direction: column;
+    width: 90vw;
+  }
+
+  .Programas {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .TablaLenguajes {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .TablaLenguajes th, .TablaLenguajes td {
+    padding: 3px;
+  }
+
+  /* Videojuegos page */
+  .videojuegos {
+    flex-direction: column;
+    overflow-y: auto;
+    min-height: auto;
+  }
+
+  .game-container {
+    flex-direction: column;
+    min-width: 100%;
+    width: 100%;
+    gap: 1rem;
+    padding: 0.5rem;
+  }
+
+  .game-box {
+    height: 50vh;
+    margin: 0.5rem auto;
+    width: 95vw;
+    flex: none;
+  }
+
+  .carousel-dinamico {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    min-height: 250px;
+  }
+
+  #panel-juego {
+    top: 10%;
+    left: 5%;
+    width: 90%;
+    height: 80%;
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .ElementosDin {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .carousel-dinamico {
+    width: 100%;
+    height: 280px;
+  }
+
+  .texto-dinamico {
+    width: 100%;
+    overflow-y: auto;
+    max-height: 200px;
+  }
+
+  /* Proyectos page */
+  .Rigs {
+    padding: 10px;
+  }
+
+  .carousel {
+    width: 90vw;
+  }
+
+  .carousel-container {
+    width: 100%;
+    height: 250px;
+  }
+
+  .imagenesArte img {
+    width: 100%;
+    height: 250px;
+  }
+
+  .texto {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  /* VR page */
+  .VRVideos {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .carousel-container {
+    width: 90vw;
+    height: 250px;
+  }
+}
+
+/* Mobile: 480px and down */
+@media (max-width: 480px) {
+  .header {
+    padding: 5px;
+  }
+
+  .textos-header h1 {
+    font-size: 1.2rem;
+  }
+
+  nav a {
+    margin: 3px 5px;
+    font-size: 12px;
+  }
+
+  .titulo {
+    font-size: 1rem;
+  }
+
+  /* Index page */
+  .ImagenPerfil {
+    width: 95%;
+    height: auto;
+  }
+
+  .SeccionBajaPrimerCuadro {
+    gap: 10px;
+  }
+
+  .Programas {
+    padding: 10px;
+  }
+
+  .Programas .skill-item {
+    margin-bottom: 0.8rem;
+  }
+
+  .Programas .skill-label {
+    font-size: 12px;
+  }
+
+  .TablaLenguajes {
+    font-size: 12px;
+  }
+
+  .TablaLenguajes th, .TablaLenguajes td {
+    padding: 2px;
+    border: 1px solid #313131;
+  }
+
+  .SegundoCuadro {
+    flex-direction: column;
+    margin: 10px;
+  }
+
+  .Educacion, .Cursos {
+    width: 100%;
+    padding: 10px;
+  }
+
+  /* Videojuegos page */
+  .videojuegos {
+    flex-direction: column;
+    overflow-y: auto;
+    min-height: auto;
+  }
+
+  .game-box {
+    height: 40vh;
+    width: 95vw;
+    margin: 0.5rem auto;
+    flex: none;
+  }
+
+  .carousel-dinamico {
+    width: 100%;
+    height: 200px;
+  }
+
+  #panel-juego {
+    top: 5%;
+    left: 2.5%;
+    width: 95%;
+    height: 90%;
+  }
+
+  .titulo-dinamico {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+
+  .carousel-button {
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  /* Proyectos page */
+  .Intro {
+    padding: 10px;
+  }
+
+  .Intro h2 {
+    font-size: 14px;
+  }
+
+  .carousel-container {
+    width: 95vw;
+    height: 200px;
+  }
+
+  .imagenesArte img {
+    height: 200px;
+  }
+
+  .texto {
+    font-size: 12px;
+  }
+
+  /* VR page */
+  .Projects {
+    padding: 10px;
+  }
+
+  .VRVideos {
+    width: 95vw;
+  }
+
+  .carousel-container {
+    width: 100%;
+    height: 200px;
+  }
+}
+
+/* Extra small: 360px and down (very small phones) */
+@media (max-width: 360px) {
+  .header {
+    padding: 3px;
+  }
+
+  .textos-header h1 {
+    font-size: 0.9rem;
+  }
+
+  nav a {
+    font-size: 10px;
+    margin: 2px 3px;
+  }
+
+  .titulo {
+    font-size: 0.9rem;
+  }
+
+  .TablaLenguajes {
+    font-size: 10px;
+  }
+
+  .carousel-dinamico {
+    height: 150px;
+  }
+
+  .carousel-container {
+    height: 150px;
+  }
+
+  .imagenesArte img {
+    height: 150px;
+  }
 }
