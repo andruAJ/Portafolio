@@ -203,3 +203,36 @@ document.querySelectorAll('.game-box').forEach(card => {
 function cerrarPanel() {
   document.getElementById('panel-juego').style.display = 'none';
 }
+
+// Initialize feather icons and skill bars when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+  try {
+    if (window.feather && typeof feather.replace === 'function') feather.replace();
+  } catch (e) {
+    console.warn('Feather icons not initialized:', e);
+  }
+
+  const skillBars = document.querySelectorAll('.skill-bar');
+  console.log('skill-bar initializer running, found', skillBars.length);
+  if (skillBars.length === 0) return;
+
+  // set widths from data-percent and animate
+  skillBars.forEach(bar => {
+    const percent = bar.getAttribute('data-percent') || '0';
+    // ensure CSS custom property exists (not strictly required)
+    bar.style.setProperty('--target-width', percent + '%');
+    // start collapsed
+    bar.style.width = '0';
+  });
+
+  // allow layout to settle then animate
+  requestAnimationFrame(() => {
+    setTimeout(() => {
+      skillBars.forEach(bar => {
+        const percent = bar.getAttribute('data-percent') || '0';
+        bar.style.width = percent + '%';
+      });
+    }, 80);
+  });
+});
+
