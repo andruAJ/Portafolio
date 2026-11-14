@@ -6,24 +6,30 @@ html {
 @font-face{ font-family:'Pricedown'; src:url("Assets/pricedownbl.ttf") format('truetype'); }
 
 *{ box-sizing:border-box; margin:0; padding:0; }
-body{ font-family: Arial, Helvetica, sans-serif; }
-
-.header, .ContenidoFooter { min-width:100vw; display: flex; justify-content: center; align-items: center;}
+body{
+   font-family: Arial, Helvetica, sans-serif;
+   color: #ffffff;
+   margin: 0;
+   padding: 0;
+   background: #111111;
+   background: -webkit-linear-gradient(to right, #111111, #242424, #111111);
+   background: linear-gradient(to right, #111111, #242424, #111111);
+}
+.header, .ContenidoFooter {
+   width: 100%;
+   min-width: 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
 .header { background: none; } 
 
 .textos-header{
    font-family:'Soccer';
    color: #ffffff;
-}
-body
-{
-   font-family: Arial, Helvetica, sans-serif;
-   color: #ffffff;
-   margin: 0;
-   padding: 0;
-   background: #111111;  
-   background: -webkit-linear-gradient(to right, #111111, #242424, #111111); 
-   background: linear-gradient(to right, #111111, #242424, #111111); 
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }
 .titulo {
    font-family:'Soccer';
@@ -34,7 +40,6 @@ body
    z-index: 1; 
 }
 .ContenidoFooter{
-   min-width: 100vw;
    padding: 0.5%;
    background: #111111;
    background: -webkit-linear-gradient(to right, #111111, #242424, #111111);  
@@ -57,17 +62,6 @@ nav a {
 nav a:hover {
    color: orange; 
    text-decoration: underline;
-}
-.textos-header{
-   display: flex;
-   justify-content: center;
-   align-items: center;
-}
-
-* {
-   margin: 0;
-   padding: 0;
-   box-sizing: border-box;
 }
 
 /* --------------------------------------------------------Index----------------------------------------------------------------- */
@@ -102,15 +96,7 @@ nav a:hover {
    display: flex;
    flex-direction: column ;
 }
-.TextosQuienSoy{
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   flex-direction: column;
-   text-align: center;
-   padding: 20px;
-   font-family: Arial, sans-serif;
-}
+.TextosQuienSoy,
 .TextoPerfil{
    display: flex;
    justify-content: center;
@@ -118,6 +104,9 @@ nav a:hover {
    flex-direction: column;
    text-align: center;
    padding: 20px;
+}
+.TextosQuienSoy{
+   font-family: Arial, sans-serif;
 }
 .SeccionTextos-Gif{
    display: flex;
@@ -162,7 +151,9 @@ nav a:hover {
    flex-direction: row;
    gap: 20px;
 }
-.TablaLenguajes{
+.TablaLenguajes,
+.OtrasActividades,
+.TablaCursos{
    display: flex;
    justify-content: center;
    align-items: center;
@@ -170,30 +161,12 @@ nav a:hover {
    text-align: center;
    border-collapse: collapse;    
 }
-.TablaLenguajes th, .TablaLenguajes td {
+.TablaLenguajes th, .TablaLenguajes td,
+.OtrasActividades th, .OtrasActividades td,
+.TablaCursos th, .TablaCursos td {
    border: 3px solid #313131;
    padding: 5px;
    background-color: #242424;
-}
-.OtrasActividades{
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   flex-direction: column;
-   text-align: center;
-   border-collapse: collapse;
-}
-.OtrasActividades th, .OtrasActividades td {
-   border: 3px solid #313131;
-   padding: 5px;
-   background-color: #242424;
-}
-.OtrasActividades{
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   flex-direction: column;
-   text-align: center;
 }
 .SegundoCuadro{
    margin: 20px;
@@ -203,14 +176,7 @@ nav a:hover {
    text-align: center;
    border-collapse: collapse;
 }
-.Educacion{
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   flex-direction: column;
-   text-align: center;
-   padding: 20px;
-}
+.Educacion,
 .Cursos{
    display: flex;
    justify-content: center;
@@ -218,19 +184,6 @@ nav a:hover {
    flex-direction: column;
    text-align: center;
    padding: 20px;
-}
-.TablaCursos{
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   flex-direction: column;
-   text-align: center;
-   border-collapse: collapse;
-}
-.TablaCursos th, .TablaCursos td {
-   border: 3px solid #313131;
-   padding: 5px;
-   background-color: #242424;
 }
 /* --------------------------------------------------------Proyectos----------------------------------------------------------------- */
 .Intro{
@@ -243,321 +196,246 @@ nav a:hover {
 }
 .Rigs{
    display: flex;
-   justify-content: center;
-   align-items: center;
    flex-direction: column;
+   align-items: center;
    text-align: center;
    padding: 20px;
+   width: 100%;
+   max-width: 1200px;
+   margin: 0 auto;
 }
-.carousel {
-   display: flex;
-   flex-direction: column;
+
+.carousel,
+.VRVideos,
+.Eros {
+   display: grid;
+   grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+   grid-template-rows: auto 1fr;
    align-items: center;
-   padding: 10px;
- }
- .texto {
-   font-family: Arial, sans-serif;
-   color: #fff;
-   text-align: center;
-   margin-bottom: 10px;
-   width: 600px;
- }
+   gap: 1.25rem;
+   width: min(94%, 1100px);
+   margin: 1.25rem auto;
+   padding: 1.5rem;
+   border: 1px solid #444;
+   border-radius: 12px;
+   background: #202020;
+   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.carousel .project-card-title,
+.VRVideos .project-card-title,
+.Eros .project-card-title {
+   grid-row: 1;
+}
 
 .carousel-container {
    position: relative;
-   width: 640px;
-   height: 360px;
+   width: 100%;
+   height: auto;
+   aspect-ratio: 16 / 10;
    overflow: hidden;
    border: 2px solid #333;
    border-radius: 10px;
- }
- .imagenesArte{
+}
+
+.carousel .carousel-container,
+.VRVideos .carousel-container,
+.Eros .carousel-container {
+   grid-column: 1;
+   grid-row: 2;
+   border-color: #444;
+}
+
+.carousel .texto,
+.VRVideos .texto,
+.Eros .texto {
+   grid-column: 2;
+   grid-row: 2;
+   width: 100%;
+   margin: 0;
+   color: #eee;
+   font-family: Arial, sans-serif;
+   line-height: 1.6;
+   text-align: left;
+}
+
+.carousel .texto h2,
+.carousel .texto h3,
+.VRVideos .texto h2,
+.VRVideos .texto h3,
+.Eros .texto h2,
+.Eros .texto h3 {
+   font-size: 1rem;
+   font-weight: 400;
+   line-height: 1.6;
+}
+
+.imagenesArte {
    display: flex;
-   transition: transform 0.5s ease-in-out;
+   height: 100%;
    flex-shrink: 0;
- }
- .imagenesArte img{
-   width: 640px;
-   height: 360px;
-   object-fit: cover;
- }
- .carousel-button {
+   transition: transform 0.5s ease-in-out;
+}
+
+.imagenesArte > img,
+.imagenesArte > video {
+   flex: 0 0 100%;
+   width: 100%;
+   height: 100%;
+   background: #111;
+   object-fit: contain;
+}
+
+.carousel-button {
    position: absolute;
    top: 50%;
+   z-index: 2;
+   padding: 10px;
    transform: translateY(-50%);
+   border: none;
+   border-radius: 50%;
    background: rgba(0, 0, 0, .5);
    color: #fff;
-   border: none;
-   padding: 10px;
-   border-radius: 50%;
    cursor: pointer;
-   z-index: 2;
- }
+}
 
- .carousel-button:hover {
+.carousel-button:hover {
    background-color: rgba(0, 0, 0, 0.8);
- }
+}
 
- .carousel-button.prev {
+.carousel-button.prev {
    left: 10px;
- }
+}
 
- .carousel-button.next {
+.carousel-button.next {
    right: 10px;
- }
+}
 
 
  /* --------------------------------------------------------Videojuegos-------------------------------------------------------------- */
  
  
-.videojuegos{
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   min-height: 100vh; 
-   min-width: 100vw;;
+.videojuegos {
+   display: block;
+   min-width: 0;
+   min-height: 0;
+   padding: 1.5rem 1rem;
    background: #111111;
-   background: -webkit-linear-gradient(to right, #111111, #242424, #111111);  
+   background: -webkit-linear-gradient(to right, #111111, #242424, #111111);
    background: linear-gradient(to right, #111111, #242424, #111111);
    font-family: Arial, sans-serif;
    overflow: auto;
 }
+
 .game-container {
    display: flex;
-   flex-direction: row;
+   flex-direction: column;
    justify-content: center;
-   align-items: center;
-   min-width: 80vw;
-   width: 100%;
+   align-items: stretch;
+   width: min(100%, 1200px);
+   max-width: 1200px;
+   min-width: 0;
+   margin: 0 auto;
+   gap: 1.5rem;
 }
-section  {
-   display: none;  
+
+section {
+   display: none;
 }
+
 .game-box {
-   flex: 1;
-   height: 75vh;
+   flex: none;
+   width: 100%;
+   height: auto;
    background-size: cover;
    background-position: center;
    position: relative;
    display: flex;
    align-items: center;
    justify-content: center;
-   margin: 0.5vw;
-   overflow: hidden;
-   cursor: pointer;
+   margin: 0;
+   overflow: visible;
+   cursor: default;
    transition: transform 0.3s ease;
-}
-.game-box:hover {
-   transform: scale(1.1);
-   animation: none; 
-}
-#panel-juego {
-  position: fixed;
-  top: 5%;
-  left: 10%;
-  width: 80%;
-  height: 80%;
-  background: rgba(23, 23, 23, 0.937);
-  display: none;
-  flex-direction: row;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
-  z-index: 1000;
-}
-#panel-juego button {
-  color: #fff;
-}
-.texto-dinamico{
-  width:40%;
-  color:#fff;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  gap:1rem;
-  overflow-y:auto;
-  text-align:center;
-  padding:1rem;
-}
-.texto-dinamico h2{
-   margin-top: 20px;
-}
-.panel-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-   justify-content: center;
-}
-.ElementosDin {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  gap: 20px;
-}
-.carousel-dinamico {
-  width: 640px;
-  height: 360px;
-  position: relative;
-  overflow: hidden;
-  border: 2px solid #333;
-  border-radius: 10px;
-  justify-content: center;
-  align-items: center;
-}
-.imagenesArteCarouselDin {
-  transition: transform 0.5s ease-in-out;
-  width: 100%;
-}
-.carousel-dinamico img, .carousel-dinamico video {
-  width: 100%;
-  object-fit: contain;
-}
-.imagenesArteCarouselDin {
-   display: flex;
-   align-items: center;
-   height: 100%;
-}
-.slide-item {
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   height: 100%;
-   flex-shrink: 0;
-}
-.slide-item img, .slide-item video {
-   height: 100%;
-   object-fit: cover;
-   display: block;
-   max-width: none;
-}
-.texto-dinamico {
-  width: 40%;
-  overflow-y: auto;
-}
-.titulo-dinamico {
-  font-family: 'Soccer', sans-serif;
-  color: #ffffff;
-  font-size: 2rem;
-  font-weight: bold;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.133);
-  margin-bottom: 20px;
-  text-align: center;
+   transform: none;
 }
 
-.carousel-dinamico button {
-  position: absolute;
-   top: 50%;
-   transform: translateY(-50%);
-   background-color: rgba(0, 0, 0, 0.5);
+.videojuegos .game-box:hover {
+   transform: none;
+   animation: none;
+}
+
+.videojuegos .game-box > section.project-card {
+   display: grid;
+   grid-template-columns: minmax(0, 1fr);
+   gap: 1.25rem;
+   width: 100%;
+   padding: 1.5rem;
+   border: 1px solid #444;
+   border-radius: 12px;
+   background: #202020;
+   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+   transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.videojuegos .game-box:hover > section.project-card {
+   transform: translateY(-4px);
+   border-color: #ffd54a;
+   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+}
+
+.project-card-title {
+   grid-column: 1 / -1;
+   margin: 0;
    color: #fff;
-   border: none;
-   padding: 10px;
-   cursor: pointer;
-   border-radius: 50%;
-}
-.cerrar-button{
-   position: absolute;
-   top: 10px;
-   right: 20px;
-   font-size: 24px;
-   background: none;
-   border: none;
-   cursor: pointer;
+   font-family: 'Soccer', Arial, sans-serif;
+   font-size: 1.5rem;
+   text-align: center;
 }
 
-/* --------------------------------------------------------VR Projects-------------------------------------------------------------- */
-
-.VRVideos{
-   justify-content: center;
+.project-card-content {
+   display: grid;
+   grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
    align-items: center;
+   gap: 1.5rem;
+}
+
+.videojuegos .game-media-carousel {
+   width: 100%;
+   height: auto;
+   aspect-ratio: 16 / 9;
+   min-width: 0;
+   border-color: #444;
+}
+
+.videojuegos .game-media-carousel .imagenesArte {
+   width: 100%;
+   height: 100%;
+}
+
+.videojuegos .game-media-carousel .imagenesArte img,
+.videojuegos .game-media-carousel .imagenesArte video {
+   border-radius: 6px;
+}
+
+.project-card-copy {
    display: flex;
-   padding: 20px;
-}
-   
-@keyframes playCanon {
-   0% { background-image: url('Assets/Captura de pantalla 2024-06-13 192326.png'); }
-   33% { background-image: url('Assets/Captura de pantalla 2024-06-13 192400.png'); }
-   66% { background-image: url('Assets/Captura de pantalla 2024-06-13 192420.png'); }
-   100% { background-image: url('Assets/Captura de pantalla 2024-06-13 192326.png'); } 
-}
-@keyframes playEarth {
-   0% { background-image: url('Assets/Earth1.png'); }
-   25% { background-image: url('Assets/Earth2.png'); }
-   50% { background-image: url('Assets/Earth3.png'); }
-   75% { background-image: url('Assets/Earth4.png'); }
-   100% { background-image: url('Assets/Earth1.png'); } 
-}
-@keyframes playFP {
-   0% { background-image: url('Assets/CAPTURA-01.png'); }
-   20% { background-image: url('Assets/CAPTURA-02.png'); }
-   40% { background-image: url('Assets/CAPTURA-03.png'); }
-   60% { background-image: url('Assets/CAPTURA-04.png'); }
-   80% { background-image: url('Assets/CAPTURA-05.png'); }
-   100% { background-image: url('Assets/CAPTURA-01.png'); } 
-}
-@keyframes playOrb {
-   0% { background-image: url('Assets/Cap1Orbits.png'); }
-   33% { background-image: url('Assets/Cap2Orbits.png'); }
-   66% { background-image: url('Assets/Cap3Orbits.png'); }
-   100% { background-image: url('Assets/Cap1Orbits.png'); } 
-}
-@keyframes playTP {
-   0% { background-image: url('Assets/TempoClash0.jpg'); }
-   25% { background-image: url('Assets/TempoClash1.jpg'); }
-   50% { background-image: url('Assets/TempoClash2.jpg'); }
-   75% { background-image: url('Assets/TempoClash3.jpg'); } 
-   100% { background-image: url('Assets/TempoClash0.jpg'); } 
-}
-#CanonMatacabras {
-   background-image: url('Assets/Captura de pantalla 2024-06-13 192400.png');
+   flex-direction: column;
+   gap: 0.75rem;
+   min-width: 0;
+   color: #eee;
+   line-height: 1.6;
 }
 
-#CanonMatacabras:hover {
-   transform: scale(1.1);
-   animation: playCanon 3s steps(1) infinite; 
+.project-card-copy h2,
+.project-card-copy h3 {
+   font-size: 1rem;
+   font-weight: 400;
+   line-height: 1.6;
 }
 
-#Earths-Twilight{
-   background-image: url('Assets/Earth4.png');
-}
-
-#Earths-Twilight:hover {
-   transform: scale(1.1);
-   animation: playEarth 3s steps(1) infinite; 
-}
-
-#FruitPunch {
-   background-image: url('Assets/CAPTURA-01.png');
-}
-
-#FruitPunch:hover {
-   transform: scale(1.1);
-   animation: playFP 3s steps(1) infinite; 
-}
-
-#Orbits {
-   background-image: url('Assets/Cap1Orbits.png');
-}
-
-#Orbits:hover {
-   transform: scale(1.1);
-   animation: playOrb 3s steps(1) infinite; 
-}
-#TempoClash {
-   background-image: url('Assets/TempoClash3.jpg');
-}
-
-#TempoClash:hover {
-   transform: scale(1.1);
-   animation: playTP 3s steps(1) infinite; 
-}
-#HackNSlash {
-   background-image: url('Assets/HackNSlash2.png');
-}
-
-#HackNSlash:hover {
-   transform: scale(1.1);
-   animation: playHNS 3s steps(1) infinite; 
+.project-card-copy a {
+   color: #ffd54a;
 }
 
 :root{
@@ -692,94 +570,46 @@ section  {
     padding: 3px;
   }
 
-  /* Videojuegos page */
-  .videojuegos {
-    flex-direction: column;
-    overflow-y: auto;
-    min-height: auto;
-  }
-
   .game-container {
-    flex-direction: column;
-    min-width: 100%;
-    width: 100%;
-    gap: 1rem;
     padding: 0.5rem;
   }
 
-  .game-box {
-    height: 50vh;
-    margin: 0.5rem auto;
-    width: 95vw;
-    flex: none;
+  .videojuegos {
+    padding: 1rem 0.5rem;
   }
 
-  .carousel-dinamico {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    min-height: 250px;
-  }
-
-  #panel-juego {
-    top: 10%;
-    left: 5%;
-    width: 90%;
-    height: 80%;
-    flex-direction: column;
-    padding: 10px;
-  }
-
-  .ElementosDin {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .carousel-dinamico {
-    width: 100%;
-    height: 280px;
-  }
-
-  .texto-dinamico {
-    width: 100%;
-    overflow-y: auto;
-    max-height: 200px;
-  }
-
-  /* Proyectos page */
   .Rigs {
     padding: 10px;
   }
 
-  .carousel {
-    width: 90vw;
+  .project-card-content,
+  .carousel,
+  .VRVideos,
+  .Eros {
+    grid-template-columns: minmax(0, 1fr);
   }
 
-  .carousel-container {
-    width: 100%;
-    height: 250px;
+  .videojuegos .game-box > section.project-card,
+  .carousel,
+  .VRVideos,
+  .Eros {
+    padding: 1rem;
   }
 
-  .imagenesArte img {
-    width: 100%;
-    height: 250px;
+  .carousel .carousel-container,
+  .VRVideos .carousel-container,
+  .Eros .carousel-container,
+  .carousel .texto,
+  .VRVideos .texto,
+  .Eros .texto {
+    grid-column: 1;
+    grid-row: auto;
   }
 
-  .texto {
-    width: 100%;
-    font-size: 14px;
-  }
-
-  /* VR page */
-  .VRVideos {
-    flex-direction: column;
-    gap: 1rem;
-    width: 100%;
-  }
-
-  .carousel-container {
-    width: 90vw;
-    height: 250px;
+  .carousel .carousel-container,
+  .VRVideos .carousel-container,
+  .Eros .carousel-container {
+    aspect-ratio: 16 / 9;
   }
 }
 
@@ -843,43 +673,15 @@ section  {
     padding: 10px;
   }
 
-  /* Videojuegos page */
-  .videojuegos {
-    flex-direction: column;
-    overflow-y: auto;
-    min-height: auto;
-  }
-
-  .game-box {
-    height: 40vh;
-    width: 95vw;
-    margin: 0.5rem auto;
-    flex: none;
-  }
-
-  .carousel-dinamico {
-    width: 100%;
-    height: 200px;
-  }
-
-  #panel-juego {
-    top: 5%;
-    left: 2.5%;
-    width: 95%;
-    height: 90%;
-  }
-
-  .titulo-dinamico {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-  }
-
   .carousel-button {
     padding: 8px;
     font-size: 14px;
   }
 
-  /* Proyectos page */
+  .project-card-title {
+    font-size: 1.2rem;
+  }
+
   .Intro {
     padding: 10px;
   }
@@ -888,31 +690,8 @@ section  {
     font-size: 14px;
   }
 
-  .carousel-container {
-    width: 95vw;
-    height: 200px;
-  }
-
-  .imagenesArte img {
-    height: 200px;
-  }
-
-  .texto {
-    font-size: 12px;
-  }
-
-  /* VR page */
   .Projects {
     padding: 10px;
-  }
-
-  .VRVideos {
-    width: 95vw;
-  }
-
-  .carousel-container {
-    width: 100%;
-    height: 200px;
   }
 }
 
@@ -939,15 +718,14 @@ section  {
     font-size: 10px;
   }
 
-  .carousel-dinamico {
-    height: 150px;
-  }
+}
 
-  .carousel-container {
-    height: 150px;
-  }
+#CanonMatacabras:hover, #HackNSlash:hover,
+#Mochi:hover, #Earths-Twilight:hover, #FruitPunch:hover, #Orbits:hover, #TempoClash:hover {
+  transform: scale(1.1);
+}
 
-  .imagenesArte img {
-    height: 150px;
-  }
+.Projects,
+.AppliedEngineering {
+  padding-bottom: 1.5rem;
 }

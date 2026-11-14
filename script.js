@@ -1,195 +1,86 @@
 document.addEventListener('DOMContentLoaded', function() {
-  document.querySelectorAll('.carousel').forEach((carousel) => {
-  let currentIndex = 0;
+  document.querySelectorAll('.game-box').forEach(card => {
+    const section = card.querySelector('section');
+    const title = section && section.querySelector('.titulo-juego');
+    const media = section && section.querySelector('.imagenes-juegos');
+    if (!section || !title || !media) return;
 
-  const imagesContainer = carousel.querySelector('.imagenesArte');
-  const images = imagesContainer.querySelectorAll('img');
-  const totalImages = images.length;
+    const mediaItems = Array.from(media.querySelectorAll('img, video'));
+    const slides = document.createElement('div');
+    slides.className = 'imagenesArte';
+    mediaItems.forEach(item => slides.appendChild(item));
+    media.classList.add('carousel-container', 'game-media-carousel');
+    media.replaceChildren(slides);
 
-  const updateCarousel = () => {
-    const offset = -currentIndex * 640;
-    imagesContainer.style.transform = `translateX(${offset}px)`;
-  };
+    if (mediaItems.length > 1) {
+      const previous = document.createElement('button');
+      previous.className = 'carousel-button prev';
+      previous.type = 'button';
+      previous.setAttribute('aria-label', 'Previous media');
+      previous.textContent = '❮';
 
-  carousel.querySelector('.next').addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % totalImages;
-    updateCarousel();
+      const next = document.createElement('button');
+      next.className = 'carousel-button next';
+      next.type = 'button';
+      next.setAttribute('aria-label', 'Next media');
+      next.textContent = '❯';
+
+      media.append(previous, next);
+    }
+
+    const content = document.createElement('div');
+    const copy = document.createElement('div');
+    content.className = 'project-card-content';
+    copy.className = 'project-card-copy';
+
+    Array.from(section.children).forEach(child => {
+      if (child === title || child === media) return;
+      copy.appendChild(child);
+    });
+
+    content.append(media, copy);
+    section.classList.add('project-card');
+    section.append(title, content);
   });
 
-  carousel.querySelector('.prev').addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + totalImages) % totalImages;
-    updateCarousel();
+  document.querySelectorAll('.carousel, .VRVideos, .Eros').forEach(card => {
+    const title = card.querySelector('.project-card-title');
+    const media = card.querySelector('.carousel-container');
+    const text = card.querySelector('.texto');
+    if (title && media && text) card.append(title, media, text);
   });
-});
 
-document.querySelectorAll('.game-box').forEach(card => {
-  card.addEventListener('click', () => {
-    const panel = document.getElementById('panel-juego');
-    const carouselDinamico = panel.querySelector('.carousel-dinamico');
-    const imagenesArte = carouselDinamico.querySelector('.imagenesArteCarouselDin');
-    const texto = panel.querySelector('.texto-dinamico');
+  document.querySelectorAll('.carousel, .game-media-carousel').forEach(carousel => {
+    const container = carousel.classList.contains('game-media-carousel')
+      ? carousel
+      : carousel.querySelector('.carousel-container');
+    const slides = carousel.querySelector('.imagenesArte');
+    const items = slides ? Array.from(slides.querySelectorAll('img, video')) : [];
+    const next = carousel.querySelector('.next');
+    const previous = carousel.querySelector('.prev');
+    if (!container || !slides || items.length === 0 || !next || !previous) return;
 
-    if (!imagenesArte) {
-      console.error('imagenesArteCarouselDin not found');
-      return;
-    }
+    next.removeAttribute('onclick');
+    previous.removeAttribute('onclick');
 
-    imagenesArte.innerHTML = '';
-    texto.innerHTML = '';
-
-    const imagenesContainer = card.querySelector('.imagenes-juegos');
-    const textos = card.querySelector('[class^="texto-"]');
-    const titulo = card.querySelector('.titulo-juego');
-    const tituloDinamico = panel.querySelector('.titulo-dinamico');
-
-    if (titulo && tituloDinamico) {
-      tituloDinamico.innerHTML = titulo.innerHTML;
-    }
-
-    let items = [];
-    if (imagenesContainer) {
-      imagenesArte.innerHTML = '';
-      imagenesContainer.childNodes.forEach(node => {
-        if (node.nodeType === 1) {
-          const clone = node.cloneNode(true);
-          
-          if (clone.tagName && (clone.tagName.toLowerCase() === 'img' || clone.tagName.toLowerCase() === 'video')) {
-            clone.style.height = '100%';
-            clone.style.display = 'block';
-            clone.style.objectFit = 'cover';
-            clone.style.maxWidth = 'none';
-          }
-          const wrapper = document.createElement('div');
-          wrapper.className = 'slide-item';
-          wrapper.style.flexShrink = '0';
-          wrapper.style.height = '100%';
-          wrapper.appendChild(clone);
-          imagenesArte.appendChild(wrapper);
-          items.push(wrapper);
-        }
-      });
-      imagenesArte.style.display = 'flex';
-      imagenesArte.style.transition = 'transform 0.5s ease-in-out';
-      imagenesArte.style.overflow = 'hidden';
-    }
-
-    if (textos) {
-      texto.innerHTML = textos.innerHTML;
-    }
-
-    
-    panel.style.display = 'flex';
-
-    
-    const nextBtn = carouselDinamico.querySelector('.next');
-    const prevBtn = carouselDinamico.querySelector('.prev');
-
-    
-    const defaultWidth = 640;
-    const carouselHeight = carouselDinamico.clientHeight || 480;
-    let itemWidth = defaultWidth;
-
-    let viewportWidth = carouselDinamico.clientWidth || 640;
-    let totalWidth = 0;
-    let maxIndex = 0; 
-
-    function applyWidths(width) {
-      itemWidth = Math.max(120, Math.round(width));
-      items.forEach(i => i.style.width = itemWidth + 'px');
-      totalWidth = items.length * itemWidth;
-      imagenesArte.style.width = totalWidth + 'px';
-      viewportWidth = carouselDinamico.clientWidth || viewportWidth;
-      maxIndex = Math.max(0, Math.ceil((totalWidth - viewportWidth) / itemWidth));
-      currentIndex = Math.max(0, Math.min(currentIndex, maxIndex || 0));
-      imagenesArte.style.transform = `translateX(${ -currentIndex * itemWidth }px)`;
-    }
-
-    function getImageSize(src, cb) {
-      const img = new Image();
-      img.onload = function() { cb(img.naturalWidth, img.naturalHeight); };
-      img.onerror = function() { cb(null, null); };
-      img.src = src;
-    }
-
-    const firstOriginal = imagenesContainer ? imagenesContainer.querySelector('img, video') : null;
-    if (firstOriginal) {
-      if (firstOriginal.tagName.toLowerCase() === 'img') {
-        const src = firstOriginal.getAttribute('src');
-        getImageSize(src, (w, h) => {
-          if (w && h) {
-            const ratio = w / h;
-            const computed = Math.min(defaultWidth, Math.max(120, Math.round(carouselHeight * ratio)));
-            applyWidths(computed);
-          } else applyWidths(defaultWidth);
-        });
-      } else if (firstOriginal.tagName.toLowerCase() === 'video') {
-        const wAttr = parseInt(firstOriginal.getAttribute('width')) || firstOriginal.videoWidth;
-        const hAttr = parseInt(firstOriginal.getAttribute('height')) || firstOriginal.videoHeight;
-        if (wAttr && hAttr) {
-          const ratio = wAttr / hAttr;
-          const computed = Math.min(defaultWidth, Math.max(120, Math.round(carouselHeight * ratio)));
-          applyWidths(computed);
-        } else {
-          firstOriginal.addEventListener('loadedmetadata', function() {
-            const vw = firstOriginal.videoWidth || defaultWidth;
-            const vh = firstOriginal.videoHeight || Math.round(defaultWidth * 9 / 16);
-            const ratio = vw / vh;
-            const computed = Math.min(defaultWidth, Math.max(120, Math.round(carouselHeight * ratio)));
-            applyWidths(computed);
-          });
-          applyWidths(defaultWidth);
-        }
-      } else {
-        applyWidths(defaultWidth);
-      }
-    } else {
-      applyWidths(defaultWidth);
-    }
-
-    // Carousel logic for .carousel-dinamico
     let currentIndex = 0;
-    function updateCarouselDinamico() {
-      currentIndex = Math.max(0, Math.min(currentIndex, maxIndex));
-      const offset = -currentIndex * itemWidth;
-      imagenesArte.style.transform = `translateX(${offset}px)`;
-    }
-    updateCarouselDinamico();
+    const updateCarousel = () => {
+      const itemWidth = container.clientWidth;
+      slides.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
+    };
 
-    // Next/Prev button logic
-    if (nextBtn && prevBtn && items.length > 0) {
-      nextBtn.style.position = 'absolute';
-      nextBtn.style.right = '10px';
-      nextBtn.style.top = '50%';
-      nextBtn.style.transform = 'translateY(-50%)';
-      prevBtn.style.position = 'absolute';
-      prevBtn.style.left = '10px';
-      prevBtn.style.top = '50%';
-      prevBtn.style.transform = 'translateY(-50%)';
-      nextBtn.style.zIndex = '2';
-      prevBtn.style.zIndex = '2';
-      nextBtn.onclick = function() {
-        if (currentIndex < maxIndex) {
-          currentIndex++;
-        } else {
-          currentIndex = 0;
-        }
-        updateCarouselDinamico();
-      };
-      prevBtn.onclick = function() {
-        if (currentIndex > 0) {
-          currentIndex--;
-        } else {
-          currentIndex = maxIndex;
-        }
-        updateCarouselDinamico();
-      };
-    }
+    next.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % items.length;
+      updateCarousel();
+    });
+    previous.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + items.length) % items.length;
+      updateCarousel();
+    });
+    window.addEventListener('resize', updateCarousel);
+    updateCarousel();
   });
 });
-});
-function cerrarPanel() {
-  document.getElementById('panel-juego').style.display = 'none';
-}
 
 document.addEventListener('DOMContentLoaded', function() {
   try {
