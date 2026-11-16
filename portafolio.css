@@ -192,9 +192,10 @@ nav a:hover {
    align-items: center;
    flex-direction: column;
    text-align: center;
-   padding-top: 20px;
+   margin: 2%;
 }
-.Rigs{
+.Rigs,
+.AppliedEngineering {
    display: flex;
    flex-direction: column;
    align-items: center;
@@ -544,6 +545,10 @@ section {
 
   .titulo {
     font-size: 1.2rem;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    text-align: center;
   }
 
   /* Index page */
