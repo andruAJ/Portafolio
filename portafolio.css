@@ -34,7 +34,7 @@ body{
 .titulo {
    font-family:'Soccer';
    color: #ffffff;
-   font-size: 1.5rem;
+   font-size: 3rem;
    font-weight: bold;
    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.133);
    z-index: 1; 
@@ -65,6 +65,15 @@ nav a:hover {
 }
 
 /* --------------------------------------------------------Index----------------------------------------------------------------- */
+
+.ContenidoQuienSoy
+{
+  padding-top: 5%;
+}
+.Perfil
+{
+  padding-top: 1%;
+}
 .PrimerCuadro{
    display: flex;
    justify-content: center;
@@ -304,7 +313,7 @@ nav a:hover {
 }
 
 
- /* --------------------------------------------------------Videojuegos-------------------------------------------------------------- */
+ /* --------------------------------------------------------Videojuegos & VR-------------------------------------------------------------- */
  
  
 .videojuegos {
@@ -376,7 +385,7 @@ section {
    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
 }
 
-.project-card-title {
+.project-card-title, .titulo-juego {
    grid-column: 1 / -1;
    margin: 0;
    color: #fff;
@@ -539,7 +548,7 @@ h5
   }
 
   .titulo {
-    font-size: 1.2rem;
+    font-size: 3rem;
     display: flex;
     justify-content:center;
     align-items: center;
